@@ -1,4 +1,6 @@
-# FPGA-Flasher-Linux for XC6SLX9.
+# FPGA-Flasher-Linux.
+
+FPGA-Flasher-Linux for XC6SLX9. using bit file to flash the FPGA board.
 
 I've seen [FPGA-Flasher](https://github.com/thanatath/FPGA-Flasher) but it's for Windows users. So I decided to create a simple script for Linux users to flash their FPGA boards.
 
