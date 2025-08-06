@@ -26,7 +26,7 @@ bash install_xc3sprog.sh
 
 You can install `xc3sprog` by using Arch User Repository (AUR) but it's will fail due to missing `DCMAKE_POLICY_VERSION_MINIMUM` so I created a script that will edit PKGBUILD and add `DCMAKE_POLICY_VERSION_MINIMUM` automatically.
 
-⚠️ If you are using a different Linux distribution, please use your package manager to install `xc3sprog`.
+⚠️ If you are using a different Linux distribution, please use your package manager to install `xc3sprog` or build it from source [xc3sprog](https://github.com/xtrx-sdr/xc3sprog).
 
 ---
 
