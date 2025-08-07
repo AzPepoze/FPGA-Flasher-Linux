@@ -30,6 +30,17 @@ You can install `xc3sprog` by using Arch User Repository (AUR) but it's will fai
 
 ---
 
+## Add udev rules
+
+You need to add udev rules to able to write data to your board.
+You can run the following command to add udev rules:
+
+```bash
+bash install_udev_rules.sh
+```
+
+---
+
 ## Flash Firmware
 
 1. Run the flasher script, providing the path to your `.bit` file.
