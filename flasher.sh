@@ -55,8 +55,36 @@ echo """
 """
 
 #-------------------------------------------------------
+# Configuration
+#-------------------------------------------------------
+
+MAX_ATTEMPTS=2
+RETRY_DELAY_SECONDS=5
+DEVICE_FOUND=false
+
+#-------------------------------------------------------
 # Selection
 #-------------------------------------------------------
+print_header "Checking for FTDI Device"
+
+for (( attempt=1; attempt<=$MAX_ATTEMPTS; attempt++ )); do
+    if xc3sprog -c ftdi >& /dev/null; then
+        echo "Found FTDI device. Good to go!"
+        DEVICE_FOUND=true
+        break
+    fi
+
+    if [ $attempt -lt $MAX_ATTEMPTS ]; then
+        echo "Error: FTDI device not found. Retrying in $RETRY_DELAY_SECONDS seconds... (Attempt $attempt/$MAX_ATTEMPTS)"
+        sleep $RETRY_DELAY_SECONDS
+    fi
+done
+
+if [ "$DEVICE_FOUND" = false ]; then
+    echo "Error: FTDI device still not found after $MAX_ATTEMPTS attempts. Please make sure it is connected."
+    exit 1
+fi
+
 print_header "Select Flash Mode"
 echo "Firmware File Selected: $(basename "$FIRMWARE_FILE")"
 echo ""
